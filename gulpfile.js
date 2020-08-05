@@ -141,7 +141,7 @@ function copyStatic() {
 function copyAssets() {
 	return src(['dev/components/**/images/**/*'], {allowEmpty: true})
 		.pipe(rename(function(path) {
-			path.dirname = path.dirname.replace('/images', '')
+			path.dirname = path.dirname.replace('/images', '').replace('\\images', '')
 		}))
 		.pipe(dest(`${distDir}/static/img`))
 }
