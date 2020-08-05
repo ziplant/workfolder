@@ -8,7 +8,16 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "example-component": "gulp addcomp -n example"
   },
-  "author": "",
+  "author": "ZipLant",
+  "repository": "https://github.com/ziplant/workfolder.git",
+  "bugs": {
+    "url": "https://github.com/ziplant/workfolder/issues"
+  },
+  "keywords": [
+    "gulp",
+    "workfolder",
+    "builder"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.0",
