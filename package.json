@@ -1,6 +1,6 @@
 {
   "name": "workfolder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "simple gulp based project builder using pug, sass, babel and webpack",
   "main": "gulpfile.js",
   "scripts": {
