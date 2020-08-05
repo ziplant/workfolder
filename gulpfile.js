@@ -12,7 +12,8 @@ const { src, dest, parallel, series } = require('gulp'),
 	babel = require('gulp-babel'),
 	sourcemaps = require('gulp-sourcemaps'),
 	webpack = require('webpack-stream'),
-	named = require('vinyl-named')
+	named = require('vinyl-named'),
+	replace = require('gulp-replace')
 
 const dev = process.env.NODE_ENV == 'development' ? true : false
 const distDir = process.env.NODE_ENV == 'development' ? 'dist' : 'build'
@@ -167,6 +168,20 @@ function browserSync() {
 	})
 }
 
+function addComponent(cb) {
+	const args = process.argv.slice(3)
+	if (!args[0] == '-n' || !args[1]) {
+		throw 'Error: missing arguments: gulp addcomp -n mycompname'
+	}
+
+	return src('dev/components/_template/**')
+		.pipe(rename(function(path) {
+			path.basename = path.basename.replace('_template',args[1])
+		}))
+		.pipe(replace('_template', args[1]))
+		.pipe(dest(`dev/components/${args[1]}`))
+}
+
 let compile = [
 	cleanDist, 
 	copyStatic, 
@@ -185,3 +200,5 @@ exports.start = series(
 exports.build = series(
 	...compile
 )
+
+exports.addcomp = addComponent

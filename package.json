@@ -1,11 +1,12 @@
 {
   "name": "workfolder",
   "version": "0.1.0",
-  "description": "simple project builder using pug, sass, babel and webpack",
+  "description": "simple gulp based project builder using pug, sass, babel and webpack",
   "main": "gulpfile.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development gulp start",
-    "build": "cross-env NODE_ENV=production gulp build"
+    "build": "cross-env NODE_ENV=production gulp build",
+    "example-component": "gulp addcomp -n example"
   },
   "author": "",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-watch": "^5.0.1",
@@ -31,7 +33,7 @@
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "val-loader": "^2.1.1",
-    "webpack-stream": "^5.2.1",
-    "vinyl-named": "^1.1.0"
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.2.1"
   }
 }
