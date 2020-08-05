@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+html
+	include ../components/example/example.pug
+	include ../components/head/head.pug
+
+	head
+		+head(head.default)
+		link(rel="stylesheet", href="static/css/main.css")
+		style
+			include ../components/example/example.css
+			
+	body
+		+example(example)
+
+		script(src="static/js/main.js")
