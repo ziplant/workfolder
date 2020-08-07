@@ -8,7 +8,7 @@ npm install workfolder -g
 ```
 
 ## Usage
-To create the project directory enter the following command:
+To create and control the project directory enter the following command:
 ```cli
 workfolder create <name>
 workfolder start
