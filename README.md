@@ -11,6 +11,9 @@ npm install workfolder -g
 To create the project directory enter the following command:
 ```cli
 workfolder create <name>
+workfolder start
+workfolder build
+workfolder addcomp <name>
 ```
 
 You have the following npm scripts:
@@ -18,8 +21,3 @@ You have the following npm scripts:
 "start": "cross-env NODE_ENV=development gulp start",
 "build": "cross-env NODE_ENV=production gulp build",
 "example-component": "gulp addcomp -n example"
-```
-So to create new component enter:
-```json
-gulp addcomp -n <name>
-```
