@@ -174,12 +174,16 @@ function addComponent(cb) {
 		throw 'Error: missing arguments: gulp addcomp -n mycompname'
 	}
 
-	return src('dev/components/_template/**')
+	src('dev/components/_template/**')
 		.pipe(rename(function(path) {
 			path.basename = path.basename.replace('_template',args[1])
 		}))
 		.pipe(replace('_template', args[1]))
 		.pipe(dest(`dev/components/${args[1]}`))
+	
+		cb()
+		
+		console.log(`Component '${args[1]}' added`)
 }
 
 let compile = [

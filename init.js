@@ -24,4 +24,36 @@ commander
     });
   })
 
+commander
+  .command('start')
+  .description('Start development server')
+  .action(() => {
+    const child = exec('npm run start')
+    child.stdout.on('data', (data) => {
+      console.log(`${data}`)
+    })
+  })
+
+commander
+  .command('build')
+  .description('Create build version with minify files')
+  .action(() => {
+    const child = exec('npm run build')
+    child.stdout.on('data', (data) => {
+      console.log(`${data}`)
+    })
+  })
+
+
+commander
+  .command('addcomp <name>')
+  .description('Add new component')
+  .action((name) => {
+    const child = exec(`gulp addcomp -n ${name}`)
+    child.stdout.on('data', (data) => {
+      console.log(`${data}`)
+    })
+  })
+
+
 commander.parse(process.argv)
