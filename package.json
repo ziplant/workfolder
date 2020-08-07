@@ -1,13 +1,9 @@
 {
   "name": "workfolder",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "simple gulp based project builder using pug, sass, babel and webpack",
-  "main": "gulpfile.js",
-  "scripts": {
-    "start": "cross-env NODE_ENV=development gulp start",
-    "build": "cross-env NODE_ENV=production gulp build",
-    "example-component": "gulp addcomp -n example"
-  },
+  "main": "init.js",
+  "bin": "init.js",
   "author": "ZipLant",
   "repository": "https://github.com/ziplant/workfolder.git",
   "bugs": {
@@ -19,30 +15,9 @@
     "builder"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "autoprefixer": "^9.8.6",
-    "browser-sync": "^2.26.12",
-    "cross-env": "^7.0.2",
-    "css-loader": "^4.2.0",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-csso": "^3.0.1",
-    "gulp-debug": "^4.0.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-pug": "^4.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-watch": "^5.0.1",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.2",
-    "style-loader": "^1.2.1",
-    "val-loader": "^2.1.1",
-    "vinyl-named": "^1.1.0",
-    "webpack-stream": "^5.2.1"
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "commander": "^6.0.0",
+    "fs-extra": "^9.0.1"
   }
 }
