@@ -14,7 +14,7 @@ commander
     console.log('Copy files...')
     await fs.copy(path.resolve(__dirname, 'project'), name)
     console.log('Downloading node_modules...')
-    exec(`npm install --prefix ${name}`, (error) => {
+    exec(`cd ${name}; npm install`, (error) => {
       if (error) {
           console.log(`error: ${error.message}`)
           return
