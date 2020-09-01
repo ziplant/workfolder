@@ -1,4 +1,4 @@
 node_modules
-project/node_modules
-project/dist
+/project/dist
+/project/build
 .vscode
