@@ -53,29 +53,6 @@ function toCSS() {
   return source;
 }
 
-function toComponentCSS() {
-  let source = src(["dev/components/**/*.sass", "dev/components/**/*.scss"]);
-
-  if (dev) {
-    source
-      .pipe(sourcemaps.init())
-      .pipe(debug({ title: "component styles:" }))
-      .pipe(catchError(sass()))
-      .pipe(postcss([prefix()]))
-      .pipe(sourcemaps.write())
-      .pipe(dest("dev/components"));
-  } else {
-    source
-      .pipe(debug({ title: "component styles:" }))
-      .pipe(catchError(sass()))
-      .pipe(postcss([prefix()]))
-      .pipe(csso())
-      .pipe(dest("dev/components"));
-  }
-
-  return source;
-}
-
 function toHTML() {
   let source = src(["dev/pages/**/*.pug"]);
 
@@ -160,10 +137,7 @@ function copyAssets() {
 
 function watchFiles() {
   watch(["dev/static/**/*.sass", "dev/static/**/*.scss"], toCSS);
-  watch(
-    ["dev/components/**/*.sass", "dev/components/**/*.scss"],
-    toComponentCSS
-  );
+  watch(["dev/components/**/*.sass", "dev/components/**/*.scss"], toCSS);
   watch("dev/**/*.pug", toHTML);
   watch("dev/**/*.js", babelJS);
   watch(
@@ -207,15 +181,7 @@ function addComponent(cb) {
   console.log(`Component '${args[1]}' added`);
 }
 
-let compile = [
-  cleanDist,
-  copyStatic,
-  copyAssets,
-  toComponentCSS,
-  toCSS,
-  toHTML,
-  babelJS,
-];
+let compile = [cleanDist, copyStatic, copyAssets, toCSS, toHTML, babelJS];
 
 exports.start = series(...compile, parallel(watchFiles, browserSync));
 
